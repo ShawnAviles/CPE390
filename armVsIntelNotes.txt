@@ -1,0 +1,18 @@
+ARM
+
+	add r3, r1, r2 // r3 = r1 + r2
+	div r4, r1, r2
+
+INTEL
+
+	mov r1, r3
+	add r2 r3
+
+imul -> signed integer multiplication
+umul -> unsigned integer multiplication
+
+only allows for dividing among two registers
+idiv -> divide this specfic register
+
+Extra:
+you could write assembly code as a job, mainly for companies where they care more about speed like nnvidia for GPUs

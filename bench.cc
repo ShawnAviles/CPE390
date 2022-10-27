@@ -6,7 +6,7 @@
 // use o2 flag for compiler to use optimaization -> do those once your code works
 // g++ -o2 -c bench.cc
 
-// i think this is what's used to view the different files bench.cc is compiled to
+// used to view the machine instructions of bench.cc
 // objdump -d bench.cc
 
 // build all the code with optimization
@@ -19,19 +19,17 @@
 #include <iostream>
 using namespace std;
 
-
-int f(int a, int b); // function prototype
-
-int main() {
-	int z = f(2,3);
-	cout << 'z' << '\n';
-}
-
-int f (int a, int b) {
+int f1a (int a, int b) {
 	return a + b;
 }
 
+int f1b (int a, int b) {
+	return a + b;
+}
 
+int f1c (int a, int b) {
+	return a + b;
+}
 
 
 // another way to comment out code
