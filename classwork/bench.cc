@@ -7,7 +7,7 @@
 // g++ -o2 -c bench.cc
 
 // used to view the machine instructions of bench.cc
-// objdump -d bench.cc
+// objdump -d ./a.out
 
 // build all the code with optimization
 // g++ -g -o2 bench.cc
