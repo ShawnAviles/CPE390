@@ -1,6 +1,9 @@
-// homework 1
-// complete functions below
-// read chapter 2 and 3 
+// Shawn Aviles
+// 11/1/2022
+// I pledge my honor that I have abided by the Stevens Honor System
+
+// Homework 1
+// complete functions below & read chapter 2 and 3 
 #include <iostream>
 using namespace std;
 
@@ -60,9 +63,12 @@ int main() {
 	for (int n = 1; n <= 25; n++) {
 		cout << "factorial of " << n << " is " << factorial(n) << endl;
 	}
+	// the factorial is incorrect starting at facotorial(13) due to overflow
+	// the factorial would be incorrect starting at factorial(20) if I used a long due to overflow as well
 }
 
 void countPowers(int iterations) {
+	// decided to take the amount of iterations as a parameter
 	uint32_t num1 = 1;
 	cout << "Iteration 1: " << num1 << endl;
 	for (int i = 1; i < iterations; i++) {
@@ -72,6 +78,7 @@ void countPowers(int iterations) {
 }
 
 int sumsquares(int num1, int num2) {
+	// no error handling is done so we assume num1 < num2 always 
 	int sum = 0;
 	for (int i = num1; i <= num2; i++) {
 		sum += i * i;
