@@ -1,0 +1,50 @@
+Q: 	how fast does electricity move?
+A: 	electricity is energy through the medium of electrons
+	somewhere between 0.5 C (light speed) and 0.9 C 
+
+Q: 	how far does light travel in 1ns
+A: 	30cm = 1ft
+
+Q:	how to avoid the latency (delay in getting data to and from RAM) of a roundtrip?
+A:	Mulitple Solutions
+	1.	Ask in advance (pipelining)
+	2. 	Ask for mulitple things at once (vectorization)
+	3. 	Caching (keep data you want close)
+
+Q:	To addresss n units of memory how many bits do I need in the
+	address bus
+A: 256 				--> 8  bits
+A: 65536 			--> 16 bits
+A: 4.2 billion		--> 32 bits
+A: 16 quadrillion	--> 64 bits
+
+Q: How big do numbers get when you mulitply them
+   (8) 
+	99
+x	99
+--------
+   891
+  8910
+--------
+  9801
+
+ 101011000
+x101110001
+
+64 bits x 64 bits  = 128 bits
+
+most 64 bit computers will just give you a 64 bit answer
+
+Q:	What is an n-bit computer?
+A:	Generally, ALU is n-bits wide, and often so is the data bus
+
+Special case: if we know we don't want much memory, the address bus can be smaller
+
+Note: 	DDR4 DDR5 gives burst of 8 values
+		please give me location 512
+		30 clock cycles later... memory returns 
+		512...519 (gives 8 bytes when you ask for 1)
+		520...527 + 1
+		528...536 + 1
+		...
+		... + 7
