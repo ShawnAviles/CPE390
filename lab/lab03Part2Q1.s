@@ -1,4 +1,5 @@
 # Shawn Aviles & Thomas Byrnes
+# x86 Assembly 
 	.globl main
 main:
 	mov	$6, %rcx
