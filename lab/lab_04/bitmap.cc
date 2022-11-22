@@ -6,10 +6,10 @@
 
 using namespace std;
 /*
-
-	AUTHOR: your name goes here
-	CITE: cite any sources you used other than the ones given
-	PLEDGE
+	AUTHOR: Shawn Aviles
+	GROUP: Shawn Aviles and Thomas Byrnes
+	CITE: (Midpoint Circle Algorithm) https://www.geeksforgeeks.org/mid-point-circle-drawing-algorithm/
+	PLEDGE: I pledge my honor that I have abided by the Stevens Honor System.
 */
 
 /*
