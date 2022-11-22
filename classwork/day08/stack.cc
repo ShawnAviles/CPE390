@@ -1,10 +1,6 @@
 #include <iostream>
 
-void add_one(uint64_t x[]){
-	for (int i = 0; i < 10; i++) {
-		x[i]++;
-	}
-}
+void add_one(uint64_t x[]);
 
 void copy(uint64_t a[], uint32_t len) {
 	uint64_t arr[10];
@@ -20,9 +16,31 @@ int main() {
 	copy(a, 5);
 }
 
+void add_one(uint64_t x[]){
+	for (int i = 0; i < 10; i++) {
+		x[i]++;
+	}
+}
+
 // look at it in debugger
 /*
 gdb a
 b main
+run
+layout asm
+layout reg
 
 */
+
+// look at it at assembler
+/*
+g++ -o2 -S stack.cc
+*/
+
+// Notes
+/*
+- registers with "_sp" format stand for Stack Pointer
+- order of registers that are used: rcx, rdx, rsi, rdi
+
+*/
+

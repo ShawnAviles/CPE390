@@ -1,0 +1,13 @@
+1. 
+uint64_t a = 0x2B | ~0x2B; // 0xFFFFFFFF (32-bit integer) -> 0x00000000FFFFFFFF (64 bit cast)
+
+xorq 	%rax, %rax 		// rax = 0
+moc		$238, %rsi		// rsi = 238
+shrq	$16, %rsi		// 238 < 255 so its just rsi = 0
+mov 	$77, %rsi		// (binary) rsi = 0100 1101 (77)
+and 	$31, %rsi		// rsi = 77 & 31 = 0100 1101 & 0001 1111 = 0000 1101
+
+2. An arduion Due has a DAC to make sounds (arbitrary waveforms), No sounds come out when you put it into a speaker. Can you predict why? 
+What can be done to the signal to solve this problem?
+
+Answer: you need to amplify the signal. the current is too low
