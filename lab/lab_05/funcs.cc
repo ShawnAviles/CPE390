@@ -34,7 +34,6 @@ uint64_t f3b(uint64_t a[], uint64_t n) {
 
 // same but every k elements
 uint64_t f3c(uint64_t a[], uint64_t n, uint64_t k) {
-	//TODO: (I added this)
 	uint64_t sum = 0;
 	for (uint64_t j = 0; j < k; j++)
 		for (uint64_t i = j; i < n; i += k) {
@@ -70,8 +69,16 @@ void xor_crypt(char msg[], uint64_t len, char key) {
 
 
 void dov(char msg[], uint64_t len, const char key[]) {
-	//TODO:
+	int keylen = strlen(key);
+	int keyIndex = 0;
 
+	for (int i = 0; i<len; i++) {
+		msg[i] = msg[i] ^ key[keyIndex];
+		keyIndex++;
+		if (keyIndex >= keylen) {
+			keyIndex = 0;
+		}
+	}
 }
 
 void dov8(char* msg[], uint64_t len, const char key[]) {

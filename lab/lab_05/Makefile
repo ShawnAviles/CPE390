@@ -6,5 +6,5 @@ bench: bench.cc asm.s funcs.cc crc64.cc crc64table.h
 	g++ -g bench.o asm.o funcs.o crc64.o -o bench
 
 clean:
-	rm *.o bench
+	sudo rm *.o bench
 	
