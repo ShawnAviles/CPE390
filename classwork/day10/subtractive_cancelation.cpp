@@ -15,6 +15,5 @@ int main() {
 	double root2 = (-b - sqrt(b*b - 4*a*c)) / (2*a);
 
 	cout << root1 << " " << root2 << "\n";
-
 }
 

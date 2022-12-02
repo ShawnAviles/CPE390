@@ -34,8 +34,14 @@ uint64_t f3b(uint64_t a[], uint64_t n) {
 
 // same but every k elements
 uint64_t f3c(uint64_t a[], uint64_t n, uint64_t k) {
-	//TODO:
-
+	//TODO: (I added this)
+	uint64_t sum = 0;
+	for (uint64_t j = 0; j < k; j++)
+		for (uint64_t i = j; i < n; i += k) {
+			sum += a[i];
+		}
+	return 0;
+	return sum;
 }
 
 // Write a function that adds
