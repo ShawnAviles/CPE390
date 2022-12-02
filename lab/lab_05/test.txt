@@ -48,7 +48,7 @@ What is an Intel Intrinsic?
 	Intel Intrinsic is assembly coded functions that allow you to use C++ function calls and variables in assembly code.
 
 What is the disadvantage of embedding an intrinsic in your code?
-	The disadvantage of embedding an intstrinsic in your code is that it can have higher latency in some cases.
+	The disadvantage of embedding an intstrinsic in your code is that it can have higher latency in some cases. Also only newer machines can use them
 
 We did not have time to benchmark the dov vs. the dov8 code. But the dov8 is optimized by precomputing the key into 64-bit values. Estimate how much more efficient the dov8 code might be on processing a large (1GB) block of memory.
 	dov8 should be 8 times faster, since you encrypt 8 bytes at a time as opposed to 1 byte at a time that dov does.
