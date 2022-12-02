@@ -1,9 +1,9 @@
 Part 1:
 Find out the following information and record: 
 	The model of the CPU on your laptop: 		Intel(R) Core(TM) i5-5257U
-	The clock speed of your laptop:				2.70 GHz
-	The kind of memory on your laptop:			DDR3
-	The amount of RAM in your laptop:			8.00 GB 
+	The clock speed of your laptop:			2.70 GHz
+	The kind of memory on your laptop:		DDR3
+	The amount of RAM in your laptop:		8.00 GB 
 	The speed of the RAM in your laptop:		1867 MHz
 	The amount of cache for your laptop:		128 KB
 
