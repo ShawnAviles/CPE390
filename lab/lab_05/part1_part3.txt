@@ -5,8 +5,7 @@ Find out the following information and record:
 	The kind of memory on your laptop:			DDR3
 	The amount of RAM in your laptop:			8.00 GB 
 	The speed of the RAM in your laptop:		1867 MHz
-	The amount of cache for your laptop:		5.0 GB
-
+	The amount of cache for your laptop:		128 KB
 
 Part 3:
 How much faster is CRC using intrinsics vs. regular C++?

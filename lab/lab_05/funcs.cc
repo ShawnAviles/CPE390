@@ -40,7 +40,6 @@ uint64_t f3c(uint64_t a[], uint64_t n, uint64_t k) {
 		for (uint64_t i = j; i < n; i += k) {
 			sum += a[i];
 		}
-	return 0;
 	return sum;
 }
 
