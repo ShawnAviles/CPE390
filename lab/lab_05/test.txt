@@ -7,7 +7,7 @@ Find out the following information and record:
 	The speed of the RAM in your laptop:		1867 MHz
 	The amount of cache for your laptop:		128 KB
 
-Part 2: (worked with Thomas Byrnes)
+Part 2: (lab partner - Thomas Byrnes)
 	Output of running "make && ./bench"
         g++ -g -O2 -c bench.cc
         g++ -c asm.s
