@@ -1,3 +1,6 @@
+// Lab 05
+// Shawn Aviles and Thomas Byrnes
+
 #include <nmmintrin.h>
 #include <cstring>
 #include "funcs.hh"

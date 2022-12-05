@@ -1,5 +1,4 @@
-
-	.globl _Z3f1ay
+	.globl _Z3f1ay		# Lab 05 - Shawn Aviles and Thomas Byrnes
 _Z3f1ay:	
 	# write a function that counts from 0 to n (which is in %rdi)
 	xor %rax, rax 		# clear rax, rax = 0
