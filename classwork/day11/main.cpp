@@ -3,6 +3,7 @@ using namespace std;
 
 double f(double a, double b);
 double sum(double arr[], int len);
+//double mean()
 
 
 main () {
