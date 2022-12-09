@@ -71,6 +71,7 @@
 		"stack": "cpp",
 		"thread": "cpp",
 		"numeric": "cpp",
-		"random": "cpp"
+		"random": "cpp",
+		"numbers": "cpp"
 	}
 }
