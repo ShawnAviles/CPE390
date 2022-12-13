@@ -22,8 +22,7 @@ double eval(double arr[], int len, double x) {
 void reverse(char s[]) {
 	// find the length of the string, last character is '\0'
 	int len;
-	for (len; s[len] != '\0'; len++)
-    ;
+	for (len; s[len] != '\0'; len++);
 
     // len = length of the string s
     for (int i = 0; i < len/2; i++) {
