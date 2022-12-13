@@ -3,9 +3,8 @@
 
 using namespace std;
 
-/* 
-Sample Final 1 - Question 2: Implement the following C++ functions in Intel assembler:
-*/
+
+/* Sample Final 1 - Question 2: Implement the following C++ functions in Intel assembler: */
 double mean(int a[], int b) {
 	double sum = 0;
 	for (int i = 0; i < b; i++) {
@@ -93,34 +92,45 @@ int main() {
 	uint32_t testColor = color(0x00000011, 0x00000022, 0x00000033);
 	cout << testColor  << endl;
 }
-/* 
-Sample Final 1 - End of Question 2 
-*/
+/* Sample Final 1 - End of Question 2 */
 
-/*
-Sample Final 1 - Question 3: Implement the following C++ functions in Intel assembler:
-*/
+
+
+/* Sample Final 1 - Question 3: Implement the following C++ functions in Intel assembler: */
 //              %rcx        %rdx      
 uint64_t f(uint64_t a, uint64_t b) {
     return (a+b)*(a-b);
 }
 /*
-    s
-    
-
-
-
+    xorq    %rax, %rax              # clear rax
+    leaq    (%rcx, %rdx), %rax      # rax = rcx + rdx = a + b
+    subq    %rdx, %rcx              # rcx = rcx - rdx = a - b
+    imul    %rcx, %rax              # rax = rax * rcx = (a+b)*(a-b)
+    ret                             # return value in rax
 */
 
+//          %rcx        %rdx
 bool mask(uint64_t a, uint64_t b) {
     return a & b == b;
 }
+/*  idk this one---------------------------------------------------------
+    andq    %rdx, %rcx              # a & b
+    cmp     %rcx, %rdx              # (a & b) == rdx
+    ???     ????
+    ret                             # return value in rax
+*/
 
+//                  %rax        %rcx
 uint64_t toggle(uint64_t a, uint64_t mask) {
     return a ^ mask;
 }
+/*
+    xorq    %rcx, %rax              # rax = rax ^ rcx
+    ret                             # return value in rax
+*/
 
 // sum the numbers from a to b inclusive
+//                  %rcx        %rdx
 uint64_t toggle(uint64_t a, uint64_t b) {
     uint64_t sum = 0;
     for (uint64_t i = a; i <= b; i++)
@@ -128,11 +138,33 @@ uint64_t toggle(uint64_t a, uint64_t b) {
     return sum;
 }
 /*
-Sample Final 1 - Question 3 End
+    xorq    %rax, %rax              # clear rax, rax = 0 
+.LOOP
+    addq    %rcx, %rax              # rax = rax + rcx
+    addq    $1, %rcx                # rcx = rcx + 1
+    cmp     %rdx, %rcx              # compare rcx and rdx
+    jl      .LOOP                   # jump if less - jump if rcx < rdx
+    ret                             # return value in rax
 */
+/* Sample Final 1 - Question 3 End */
 
 
-/*
-Sample Final 1 - Question 4: Optimization Show how the optimizer changes the following code to make it faster.
-*/
+/* Sample Final 1 - Question 4: Optimization Show how the optimizer changes the following code to make it faster.
+    ASSUMPTION: I think this is just the optimized c++ code representation*/
+uint64_t f1(uint64_t a, uint64_t b) {
+    uint64_t x = 3 + 4;             // x = 7;                           (simplifies constants)
+    return a * 2 + b * 16 + x;      // return (a << 1) + (b << 4) + x;  (simplifies power of two multiplication to bit shift left)    
+}
 
+uint64_t f2(uint64_t a, uint64_t b) {
+    return a / 2 + b % 4;           // return (a >> 1) + (b & 0x3);     (does bitwise operations)
+}
+
+uint64_t f3(uint64_t a) {
+    return (a << 3) | (a >> 61);    // return (a >> 58);                (simplifies bitshift) ?
+}
+
+uint64_t f4(uint64_t a) {
+    return a * 9;                   // return a << 3 + a;               (this would take advantge of singe instruction lea)                
+
+/* Sample Final 1 - Question 4 End. */
