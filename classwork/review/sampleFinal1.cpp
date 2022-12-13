@@ -3,6 +3,9 @@
 
 using namespace std;
 
+/* 
+Sample Final 1 - Question 2: Implement the following C++ functions in Intel assembler:
+*/
 double mean(int a[], int b) {
 	double sum = 0;
 	for (int i = 0; i < b; i++) {
@@ -90,3 +93,46 @@ int main() {
 	uint32_t testColor = color(0x00000011, 0x00000022, 0x00000033);
 	cout << testColor  << endl;
 }
+/* 
+Sample Final 1 - End of Question 2 
+*/
+
+/*
+Sample Final 1 - Question 3: Implement the following C++ functions in Intel assembler:
+*/
+//              %rcx        %rdx      
+uint64_t f(uint64_t a, uint64_t b) {
+    return (a+b)*(a-b);
+}
+/*
+    s
+    
+
+
+
+*/
+
+bool mask(uint64_t a, uint64_t b) {
+    return a & b == b;
+}
+
+uint64_t toggle(uint64_t a, uint64_t mask) {
+    return a ^ mask;
+}
+
+// sum the numbers from a to b inclusive
+uint64_t toggle(uint64_t a, uint64_t b) {
+    uint64_t sum = 0;
+    for (uint64_t i = a; i <= b; i++)
+      sum += i;
+    return sum;
+}
+/*
+Sample Final 1 - Question 3 End
+*/
+
+
+/*
+Sample Final 1 - Question 4: Optimization Show how the optimizer changes the following code to make it faster.
+*/
+
