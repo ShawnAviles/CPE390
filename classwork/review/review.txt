@@ -1,0 +1,44 @@
+1. computers process in chunks of n-bits 
+2. computers access memory with large latency
+	a. sequential is much faster
+	b. burst mode DDR x8
+	c. 2 banks of memory
+3. Computers can't go faster with faster clock 
+	a. due to heat
+4. Instead, what can we do?
+	a. design better instruction
+	b. video encoder
+	c. CRC 
+	d. data compression
+	e. encryption
+	f. Gouraud Shading
+5. Other ways to spped up computing
+	a. wider word width
+	b. Very Long Instruction Word (VLIW)
+	c. vectorization
+6. Future
+	a. optical computers
+		1. cheap, low power laser/photodetector
+		2. optical transistor (noone has made one)
+	b. quantum computers
+		1. qbits can try 2^n combinations in one
+7. Integer math
+	a. overflow
+	b. signed/unsigned 2s compliment
+	-1 = 111111111111111111111111111
+	uint16_t a = -1; // 1111111111111
+	// 65535 
+8. floating point math
+	seeeeee(some exponent bits)mmmmmmmmmmmmmmmmmmmmmmmm(mantissa bits)
+	0.5
+	100.5
+	.2 = 1/5
+	IEEE 754 (includes inf in floating point calculations)
+	INF = 1.0 / 0
+	double a = 1.0 / 0.0; 	// inf
+	double b = -1.0 / 0.0; 	// -inf
+	double c = 5 / a; 		// 0
+	double d = 3 / b; 		// -0
+	NAN = a + b
+	NAN = 0.0 / 0.0
+	sin(a) == NAN
