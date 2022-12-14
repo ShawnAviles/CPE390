@@ -42,3 +42,12 @@
 	NAN = a + b
 	NAN = 0.0 / 0.0
 	sin(a) == NAN
+
+Hardware:
+1. design a circuit to turn on/off
+	a. battery, mosfet, motor
+2. look up on spec sheet and find relevant limitations
+	a. max voltage (Vds)
+	b. max resistantce (Rds)
+	c. voltage needed to turn it on (Vgs) - gate source
+	d. continous drain current (Id)

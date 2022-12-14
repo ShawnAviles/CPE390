@@ -139,12 +139,15 @@ uint64_t toggle(uint64_t a, uint64_t b) {
 }
 /*
     xorq    %rax, %rax              # clear rax, rax = 0 
+
+
 .LOOP
     addq    %rcx, %rax              # rax = rax + rcx
     addq    $1, %rcx                # rcx = rcx + 1
     cmp     %rdx, %rcx              # compare rcx and rdx
     jl      .LOOP                   # jump if less - jump if rcx < rdx
     ret                             # return value in rax
+3
 */
 /* Sample Final 1 - Question 3 End */
 
