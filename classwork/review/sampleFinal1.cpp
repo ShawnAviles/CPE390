@@ -105,7 +105,7 @@ uint64_t f(uint64_t a, uint64_t b) {
     xorq    %rax, %rax              # clear rax
     leaq    (%rcx, %rdx), %rax      # rax = rcx + rdx = a + b
     subq    %rdx, %rcx              # rcx = rcx - rdx = a - b
-    imul    %rcx, %rax              # rax = rax * rcx = (a+b)*(a-b)
+    imulq   %rcx, %rax              # rax = rax * rcx = (a+b)*(a-b)
     ret                             # return value in rax
 */
 
@@ -113,14 +113,18 @@ uint64_t f(uint64_t a, uint64_t b) {
 bool mask(uint64_t a, uint64_t b) {
     return a & b == b;
 }
-/*  idk this one---------------------------------------------------------
+/* 
     andq    %rdx, %rcx              # a & b
     cmp     %rcx, %rdx              # (a & b) == rdx
-    ???     ????
-    ret                             # return value in rax
+    je     .EQUAL
+    movq    $0, %ax                # if not equal, then return 0
+    ret                            # return value in ax (we are returning a boolean in this case which is 16 bits)
+.EQUAL
+    movq    $1, %ax                # if equal, then return 1
+    ret                            # return value in ax (we are returning a boolean in this case which is 16 bits)
 */
 
-//                  %rax        %rcx
+//                  %rax        %rcx        (not sure if he would let us choose which registers)
 uint64_t toggle(uint64_t a, uint64_t mask) {
     return a ^ mask;
 }
@@ -139,15 +143,16 @@ uint64_t toggle(uint64_t a, uint64_t b) {
 }
 /*
     xorq    %rax, %rax              # clear rax, rax = 0 
-
-
+    cmp     %rcx, %rdx              # check if we have hit the limit already
+    jge     .END                    # (jump if rdx >= rcx) to end
 .LOOP
     addq    %rcx, %rax              # rax = rax + rcx
     addq    $1, %rcx                # rcx = rcx + 1
     cmp     %rdx, %rcx              # compare rcx and rdx
     jl      .LOOP                   # jump if less - jump if rcx < rdx
     ret                             # return value in rax
-3
+.END
+    ret
 */
 /* Sample Final 1 - Question 3 End */
 
@@ -169,5 +174,55 @@ uint64_t f3(uint64_t a) {
 
 uint64_t f4(uint64_t a) {
     return a * 9;                   // return a << 3 + a;               (this would take advantge of singe instruction lea)                
+}
+/* Sample Final 1 - Question 4 End. */
 
+
+/* Sample Final 1 - Question 4: Optimization Show how the optimizer changes the following code to make it faster.
+    ASSUMPTION: assembly optimization */
+//              %rcx        %rdx
+uint64_t f1(uint64_t a, uint64_t b) {
+    uint64_t x = 3 + 4;
+    return a * 2 + b * 16 + x;
+}
+/*
+    leaq    ($3, $4), %rax
+    shlq    $1, %rcx
+    shlq    $4, %rdx
+    addq    %rcx, %rdx
+    addq    %rdx, %rax
+    ret 
+*/
+
+//              %rcx        %rdx
+uint64_t f2(uint64_t a, uint64_t b) {
+    return a / 2 + b % 4;
+}
+/*
+    shlq    $1, %rcx
+    andq    $3, %rdx
+    addq    %rcx, %rdx
+    movq    %rdx, %rax
+    ret 
+*/
+
+//              %rcx
+uint64_t f3(uint64_t a) {
+    return (a << 3) | (a >> 61);
+}
+/*  (I don't see how this is an optimization though)
+    movq    %rcx, %rax
+    shlq    $3, %rcx
+    shrq    $61, %rax
+    orq     %rcx, %rax
+    ret
+*/
+
+//              %rcx 
+uint64_t f4(uint64_t a) {
+    return a * 9;                   // return a << 3 + a;               (this would take advantge of singe instruction lea)                
+}
+/*
+    leaq    (%rcx, %rcx, 8), %rax  
+*/
 /* Sample Final 1 - Question 4 End. */
