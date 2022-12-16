@@ -1,16 +1,23 @@
 #include <iostream>
 #include <cmath>
-
 using namespace std;
 
 
 /* Sample Final 1 - Question 2: Implement the following C++ functions in Intel assembler: */
 double mean(int a[], int b) {
-	double sum = 0;
+	double sum = 0.0;
 	for (int i = 0; i < b; i++) {
 		sum += a[i];
 	}
 	return sum / b;
+}
+
+double eval(double arr[], int len, double x) {
+	double sum;
+	for (int i = 0; i < len; i++) {
+		sum += (arr[i]) * pow(x, len - i - 1);
+	}
+	return sum;
 }
 
 double eval(double arr[], int len, double x) {
@@ -69,7 +76,6 @@ int main() {
     reverse(s); // s should contain: gnirts ym si siht
 	cout << "Reverse: " << s << endl;
 
-
     // "hello\0"
     //  hello
     //  // swap the two variables a and b using xor
@@ -115,12 +121,12 @@ bool mask(uint64_t a, uint64_t b) {
 }
 /* 
     andq    %rdx, %rcx              # a & b
-    cmp     %rcx, %rdx              # (a & b) == rdx
+    cmp     %rcx, %rdx              # (a & b) == rdx        set z-flag (and c-flag carry)
     je     .EQUAL
-    movq    $0, %ax                # if not equal, then return 0
+    mov     $0, %ax                # if not equal, then return 0
     ret                            # return value in ax (we are returning a boolean in this case which is 16 bits)
 .EQUAL
-    movq    $1, %ax                # if equal, then return 1
+    mov     $1, %ax                # if equal, then return 1
     ret                            # return value in ax (we are returning a boolean in this case which is 16 bits)
 */
 
@@ -149,7 +155,7 @@ uint64_t toggle(uint64_t a, uint64_t b) {
     addq    %rcx, %rax              # rax = rax + rcx
     addq    $1, %rcx                # rcx = rcx + 1
     cmp     %rdx, %rcx              # compare rcx and rdx
-    jl      .LOOP                   # jump if less - jump if rcx < rdx
+    jne     .LOOP                   # jump if less - jump if rcx < rdx
     ret                             # return value in rax
 .END
     ret
@@ -210,11 +216,9 @@ uint64_t f2(uint64_t a, uint64_t b) {
 uint64_t f3(uint64_t a) {
     return (a << 3) | (a >> 61);
 }
-/*  (I don't see how this is an optimization though)
+/*  (rotate left)
+    rol     $3, %rcx
     movq    %rcx, %rax
-    shlq    $3, %rcx
-    shrq    $61, %rax
-    orq     %rcx, %rax
     ret
 */
 
@@ -226,3 +230,8 @@ uint64_t f4(uint64_t a) {
     leaq    (%rcx, %rcx, 8), %rax  
 */
 /* Sample Final 1 - Question 4 End. */
+
+
+
+
+/* Personal Practice - Assembler using Floats */
