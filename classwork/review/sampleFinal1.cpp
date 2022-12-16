@@ -195,8 +195,7 @@ uint64_t f1(uint64_t a, uint64_t b) {
     leaq    ($3, $4), %rax
     shlq    $1, %rcx
     shlq    $4, %rdx
-    addq    %rcx, %rdx
-    addq    %rdx, %rax
+    leaq    %rax (%rcx, %rdx), %rax     #?
     ret 
 */
 
